@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Shop Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+	<link href="https://fonts.googleapis.com/css?family=Carter+One" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<style>
+body, html {
+ height: 100%;
+ margin: 0;
+ background-color:#0f0f0f;
+}
+    .left
+    {
+        background-image: url("http://cdn.iphonehacks.com/wp-content/uploads/2017/05/minimal_wallpaper_14_iphone.jpg");
+        height: 100%;
+        width: 45%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+		text-align:center;
+		font-size:70px;
+		font-family: 'Carter One', cursive;
+		color: white;
+		text-shadow: 2px 2px #ff0000;
+    }
+
+    .right
+    {
+        position: absolute;
+        height: 70%;
+        right: 10%;
+        width: 30%;
+        top: 15%;
+		text-align:center;
+		border-radius: 30px;
+        background-color: #a64ac9;
+		
+    }
+
+    .center
+    {
+        horizontal-align: middle;
+    }
+
+   .enjoy-css 
+   {
+	background-color: rgba(0,0,0,0.0);
+	color: red;
+	border: none;
+    }
+	
+	.box
+	{
+		font-family: 'Carter One', cursive;
+		margin-left: auto;
+		margin-right: auto;
+		width: 40%;
+		background-color:rgba(0,0,0,0.1);
+		color: white;
+		border: none;
+		font-size:20px;
+	}
+	
+	
+</style>
+<body>
+<div class="left">
+<br><br>
+THE
+<br>
+MERCH
+<br>
+STORE
+<br>
+</div>
+
+
+
+    <div class="right">
+        <br><br><br>
+        <img src="https://maxcdn.icons8.com/Share/icon/Users//user_male_circle_filled1600.png" alt="profile pic" style="display: block; margin-left: auto; margin-right: auto; width: 30%;">
+        <br><br>
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+        <form action="{% url 'signup' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <font style="font-family: 'Carter One', cursive; font-size:20px;">Username: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="username" class="box"></font>
+		<br><br>
+		<font style="font-family: 'Carter One', cursive; font-size:20px;">Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="email" class="box"></font>
+		<br><br>
+		<font style="font-family: 'Carter One', cursive; font-size:20px;">Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="password" name="password" class="box"></font>
+		<br><br>
+		<button class="w3-btn w3-ripple w3-violet" style="font-family: 'Carter One', cursive; font-size:20px;">Create Account</button>
+        </form>
+    </div>
+</body>
+</html>

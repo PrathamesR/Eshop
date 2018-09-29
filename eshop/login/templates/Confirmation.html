@@ -1,0 +1,115 @@
+<html>
+<head>
+<title> {{ item.itemName }}</title>
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Profile.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Carter+One|Passion+One" rel="stylesheet">
+
+
+<style>
+body{
+	background-image: url("https://www.newarrivalsinc.com/assets/images/fabrics%20summer%202011/dark%20gray%20solid.jpg");
+	   background-size: cover;
+	   color:white;
+}
+	
+
+	.head {
+	   font-family: 'Carter One', cursive;
+	   background-image: url("https://wallpapertag.com/wallpaper/middle/8/1/6/435322-free-black-gradient-wallpaper-1920x1080-notebook.jpg");
+	   background-size: cover;
+	   color:white;
+	   font-size:40px;
+	   
+	}
+	.img {
+    	max-width:100%;
+	max-height:100%;	
+	box-shadow: 5px 5px 5px black;
+	}
+
+	
+	.left	{
+	text-align:right;
+	font-size:20px;
+	height:100%;
+	width:20%;
+	}
+	
+	.item
+	{
+		width:60%;
+	}
+	
+	.title
+	{
+		font-family: 'Carter One', cursive; 
+		font-size:50px;
+	}
+	
+	.rat
+	{
+		font-family: 'Carter One', cursive;
+		font-size:20px;
+	}
+	.back{
+	background-image: url("https://www.newarrivalsinc.com/assets/images/fabrics%20summer%202011/dark%20gray%20solid.jpg");
+	   background-size: cover;
+	   color:white;
+	}
+	
+</style>
+</head>
+<body>
+	<div class="head"><br style="line-height:2px;">
+	    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<a href="{% url 'index' %}" style="text-decoration:none; color:white">
+		THE MERCH STORE
+		</a>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		<a href="{% url 'profile' %}" style="text-decoration:none; color:white">
+		{{user.username}}
+		</a>
+		<a href ="{% url 'logout' %} ">
+		<img src="https://cdn3.iconfinder.com/data/icons/block/32/power_on-512.png" style="width:45px; margin-bottom:10px;" >
+		</a>
+		<hr>
+	</div>
+<div class="row">
+	<div class="left col-sm-2" style="font-family: 'Carter One', cursive;">
+		<ul style="list-style:none;">
+			<li><a href="{% url 'type' 1 %}" style="text-decoration:none; color:white">T-Shirts</a></li>
+		<li><a href="{% url 'type' 2 %}" style="text-decoration:none; color:white">Hoodies</a></li>
+		<li><a href="{% url 'type' 3 %}" style="text-decoration:none; color:white">Pants</a></li>
+		<li><a href="{% url 'type' 4 %}" style="text-decoration:none; color:white">Hats</a></li>
+		</ul>			
+	</div>
+	
+	<div class="item col-sm-4">
+	<img src="{{ item.itemPic }}"  class="img">
+	</div>	
+	<div class="col-sm-4">
+	<div class=title style="font-family: 'Carter One', cursive;">
+	{{ item.itemName }}
+	</div>
+	<div class=rat>
+	Ratings- {{ item.itemRat }}/5
+	</div>
+	<div class=price style="font-size:40px; font-family: 'Carter One', cursive;">
+	₹{{ item.itemCost }}
+	</div><br>
+	<div style="font-family: 'Carter One', cursive;">
+	<h3>Description</h3>
+	<p>{{ item.itemDesc }}</p>
+	</div>
+		<h2><strong>SUCCESS</strong></h2>
+	</div>
+</div>
+</body>
+</html>

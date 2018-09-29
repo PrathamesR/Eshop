@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title> {{ user.username }}</title>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Carter+One|Passion+One" rel="stylesheet">
+    {% load staticfiles %}
+
+    <style>
+body{
+	background-image: url("https://www.newarrivalsinc.com/assets/images/fabrics%20summer%202011/dark%20gray%20solid.jpg");
+	   background-size: cover;
+	   color:white;
+}
+	
+
+	.head {
+	   font-family: 'Carter One', cursive;
+	   background-image: url("https://wallpapertag.com/wallpaper/middle/8/1/6/435322-free-black-gradient-wallpaper-1920x1080-notebook.jpg");
+	   background-size: cover;
+	   color:white;
+	   font-size:40px;
+	   
+	}
+	.img {
+    	max-width:100%;
+	max-height:100%;	
+	box-shadow: 5px 5px 5px black;
+	}
+
+	
+	.left	{
+	text-align:right;
+	font-size:20px;
+	height:100%;
+	width:20%;
+	}
+	
+	.item
+	{
+		width:60%;
+	}
+	
+	.title
+	{
+		font-family: 'Carter One', cursive; 
+		font-size:50px;
+	}
+	
+	.rat
+	{
+		font-family: 'Carter One', cursive;
+		font-size:20px;
+	}
+	.back{
+	background-image: url("https://www.newarrivalsinc.com/assets/images/fabrics%20summer%202011/dark%20gray%20solid.jpg");
+	   background-size: cover;
+	   color:white;
+	}
+	
+	.edit
+	{
+		width:90%;
+		text-align:center;
+	}
+	
+
+    </style>
+</head>
+<body>
+<div class="head"><br>
+	    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<a href="{% url 'index' %}" style="text-decoration:none; color:white">
+		THE MERCH STORE
+		</a>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		<a href="{% url 'profile' %}" style="text-decoration:none; color:white">
+		{{user.username}}
+		</a>
+		<a href ="{% url 'logout' %} ">
+		<img src="https://cdn3.iconfinder.com/data/icons/block/32/power_on-512.png" style="width:45px; margin-bottom:10px;" >
+		</a>
+		<hr>
+	</div>
+<div class="row">
+    <div class="left col-sm-2" style="font-family: 'Carter One', cursive;">
+        <ul style="list-style: none;">
+            <li><a href="{% url 'index' %}" style="text-decoration:none; color:white">Buy More</a></li>
+            <li><a href="#" style="text-decoration:none; color:white">My Orders</a></li>
+            <li><a href="#" style="text-decoration:none; color:white">Cancel Orders</a></li>
+            <li><a href="{% url 'logout' %}" style="text-decoration:none; color:white">Log Out</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-6" style="font-family: 'Carter One', cursive;">
+        <img src="https://cdn4.iconfinder.com/data/icons/icoflat-2/512/avatar-512.png" height="250" width="250"><br>
+        <p style="font-size:15px;">User name: {{ user.username }}<br></p>
+        <p style="font-size:15px;">Email: {{ user.email }} <br></p>
+        Orders-
+        <br><br>
+        {% for i in orders %}
+        <p style="font-size:15px;">Item name: {{ i.item.itemName }}<br></p>
+        {% endfor %}
+        <br>
+    </div>
+</div>
+</body>
+</html>

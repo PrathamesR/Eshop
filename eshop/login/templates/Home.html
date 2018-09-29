@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>The Merch Store </title>
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Profile.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Carter+One|Passion+One" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+body{
+	background-image: url("https://www.newarrivalsinc.com/assets/images/fabrics%20summer%202011/dark%20gray%20solid.jpg");
+	   background-size: cover;
+	   color:white;
+}
+	
+
+	.head {
+	   font-family: 'Carter One', cursive;
+	   background-image: url("https://wallpapertag.com/wallpaper/middle/8/1/6/435322-free-black-gradient-wallpaper-1920x1080-notebook.jpg");
+	   background-size: cover;
+	   color:white;
+	   font-size:35px;
+	  }
+
+	.search{
+      border: 0;
+      outline: 0;
+      background: transparent;
+      border-bottom: 2px solid white;
+      right:5%;
+	}
+	   
+	   
+	
+</style>
+</head>
+<body>
+	<div class="head"><br>
+	    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<a href="{% url 'index' %}" style="text-decoration:none; color:white">
+		THE MERCH STORE
+		</a>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		<a href="{% url 'profile' %}" style="text-decoration:none; color:white">
+		{{user.username}}
+		</a>
+		<a href ="{% url 'logout' %} ">
+		<img src="https://cdn3.iconfinder.com/data/icons/block/32/power_on-512.png" style="width:45px; margin-bottom:10px;" >
+		</a>
+		<hr>
+	</div>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+    <li data-target="#demo" data-slide-to="4"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="http://dslv9ilpbe7p1.cloudfront.net/qLqaMvsN1TIBJSvVyHvuCg_store_banner_image.jpeg" width="100%" height="550">
+    </div>
+    <div class="carousel-item">
+      <img src="https://merchoid-pveiw4zwh96ot9z.netdna-ssl.com/wp-content/uploads/2015/02/superman-hoodie-banner.jpg" width="100%" height="600">
+      <div class="carousel-caption">
+        <h3>Hoodies</h3>
+        <p>DC / Marvel Merch Now Availaible</p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="https://cdn.shopify.com/s/files/1/0014/1962/files/FG-banner_hero-celeste.png?v=1520530585" width="100%" height="600">
+      <div class="carousel-caption">
+        <h3>Celeste T Shirts </h3>
+        <p>Celeste & Firewatch merchandise at 50% off</p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="https://d2v48i7nl75u94.cloudfront.net/uploads/6795d262d87377edc080fd08ac608610.jpg"  width="100%" height="600">	  
+      <div class="carousel-caption">
+        <p>Official merchandise by influencers, celebrities and independent artists</p>
+      </div>   
+    </div>
+	<div class="carousel-item">
+      <img src="https://d2v48i7nl75u94.cloudfront.net/uploads/890e426b66b2e7a5976580d568d29d1e.jpg"  width="100%" height="700">	  
+      <div class="carousel-caption">
+        <p>Support charity with Reddit Merch</p>
+      </div>   
+    </div>	
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+<br><br>
+<div class="w3-container">
+  {% for item in all_items %}
+  <a href="{% url 'itempage' item.id %}">
+  <div class="w3-card col-sm-3" style="width:100%; height:450px; ">
+    <img align="center" src="{{item.itemPic}}" alt="Person" style="height: 300px; margin-left: auto; margin-right: auto; display: block;">
+    <div class="w3-container" >
+      <h4><b>{{item.itemName}}</b></h4>
+      <p>₹ {{item.itemCost}}</p>
+      {{item.itemRat}}/5
+    </div>
+  </div>
+  </a>
+  {% endfor %}
+</div>
+</body>
+</html>
